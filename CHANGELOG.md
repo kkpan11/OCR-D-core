@@ -5,6 +5,38 @@ Versioned according to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [2.66.1] - 2024-06-26
+
+
+Fixed:
+
+  * GHA Docker: build docker.io first, then tag ghcr.io
+
+## [2.66.0] - 2024-06-07
+
+Fixed:
+
+  * `OcrdFile.url` can now be removed properly, #1226, #1227
+  * `ocrd workspace find --undo-download`: Only remove file refs if it's an actual download, #1150, #1235
+  * `ocrd workspace find --undo-download`: When `--keep-files` is not set, remove file from disk, #1150, #1235
+  * `OCRD_LOGGING_DEBUG`: Normalize/lowercase boolean values, #1230, #1231
+  * `Workspace.download_file`: Use `Ocrd.local_filename` if set but not already present in the FS, #1149, #1228
+
+Changed:
+
+  * Install ocrd with `pip --editable` inside Docker, #1225, OCR-D/ocrd_all#416
+  * Reduce log spam in ocrd_network, #1222
+  * CI: Stop testing for 3.7, #1207, #1221
+
+Added:
+
+  * Separate docker versions for tensorflow v1, tensorflow v2 and torch, #1186
+  * Processing server can serve as a proxy for METS Server TCP requests, forwarding to UDS, #1220
+  * `ocrd workspace clean` to remove "untracked", i.e. not METS-referenced, files, #1150, #1236
+  * `-p` now supports parameter preset resources in addition to raw JSON and absolute/relative paths to JSON files, #930, #969, #1238
+
+## [2.65.0] - 2024-05-03
+
 Fixed:
 
   - bashlib processors will download on-demand, like pythonic processors do, #1216, #1217
@@ -2069,6 +2101,8 @@ Fixed
 Initial Release
 
 <!-- link-labels -->
+[2.66.1]: ../../compare/v2.66.1..v2.66.0
+[2.66.0]: ../../compare/v2.66.0..v2.65.0
 [2.65.0]: ../../compare/v2.65.0..v2.64.1
 [2.64.1]: ../../compare/v2.64.1..v2.64.0
 [2.64.0]: ../../compare/v2.63.0..v2.63.3
