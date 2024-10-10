@@ -5,6 +5,27 @@ Versioned according to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [2.70.0] - 2024-10-10
+
+Added:
+
+  - `ocrd network client workflow run`: Add `--print-status` flag to periodically print the job status, #1277
+  - Processing Server: `DELETE /mets_server_zombies` to kill any renegade METS servers, #1277
+  - No more zombie METS Server by properly shutting them down, #1284
+  - `OCRD_NETWORK_RABBITMQ_HEARBEAT` to allow overriding the [heartbeat](https://pika.readthedocs.io/en/stable/examples/heartbeat_and_blocked_timeouts.html) behavior of RabbitMQ, #1285
+
+Changed:
+
+  - significantly more detailed logging for the METS Server and Processing Server, #1284
+  - Only import `ocrd_network` in src/ocrd/decorators/__init__.py once needed, #1289
+  - Automate release via GitHub Actions, #1290
+
+Fixed:
+
+  - `ocrd/core-cuda-torch`: Install torchvision as well, #1286
+  - Processing Server: remove shut down METS servers from deployer's cache, #1287
+  - typos, #1274
+
 ## [2.69.0] - 2024-09-30
 
 Fixed:
@@ -2195,6 +2216,7 @@ Fixed
 Initial Release
 
 <!-- link-labels -->
+[2.70.0]: ../../compare/v2.70.0..v2.69.0
 [2.69.0]: ../../compare/v2.69.0..v2.68.0
 [2.68.0]: ../../compare/v2.68.0..v2.67.2
 [2.67.2]: ../../compare/v2.67.2..v2.67.1
